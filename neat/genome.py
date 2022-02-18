@@ -10,7 +10,7 @@ import sys
 from neat.activations import ActivationFunctionSet
 from neat.aggregations import AggregationFunctionSet
 from neat.config import ConfigParameter, write_pretty_params
-from neat.genes import DefaultConnectionGene, DefaultNodeGene
+from neat.genes import DefaultConnectionGene, DefaultNodeGene, ExampleGlobalGene
 from neat.graphs import creates_cycle
 
 
@@ -591,5 +591,5 @@ class ExampleGlobalGenome(DefaultGenome):
     def parse_config(cls, param_dict):
         param_dict['node_gene_type'] = DefaultNodeGene
         param_dict['connection_gene_type'] = DefaultConnectionGene
-        param_dict['global_gene_type'] = ExampleGlobalGenome
+        param_dict['global_gene_type'] = ExampleGlobalGene
         return DefaultGenomeConfig(param_dict)

@@ -75,6 +75,8 @@ class BaseGene(object):
 
 # TODO: Should these be in the nn module?  iznn and ctrnn can have additional attributes.
 
+class DefaultGlobalGene(BaseGene):
+    _gene_attributes = []
 
 class DefaultNodeGene(BaseGene):
     _gene_attributes = [FloatAttribute('bias'),
@@ -115,3 +117,5 @@ class DefaultConnectionGene(BaseGene):
             d += 1.0
         return d * config.compatibility_weight_coefficient
 
+#Global
+class ExampleGlobalGene(DefaultGlobalGene):
