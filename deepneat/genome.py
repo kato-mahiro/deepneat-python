@@ -17,6 +17,7 @@ from neat.graphs import creates_cycle
 class DefaultGenomeConfig(object):
     """Sets up and holds configuration information for the DefaultGenome class."""
     allowed_connectivity = ['unconnected', 'fs_neat_nohidden', 'fs_neat', 'fs_neat_hidden',
+
                             'full_nodirect', 'full', 'full_direct',
                             'partial_nodirect', 'partial', 'partial_direct']
 
@@ -166,6 +167,7 @@ class DefaultGenome(object):
         self.key = key
 
         # (gene_key, gene) pairs for gene sets.
+        self.global_params = {}
         self.connections = {}
         self.nodes = {}
 
@@ -238,6 +240,9 @@ class DefaultGenome(object):
         else:
             parent1, parent2 = genome2, genome1
 
+        # Inherit global params
+        self.global_params[0] = parent1.global_params[0].crossover(parent2.global_params[0])
+
         # Inherit connection genes
         for key, cg1 in parent1.connections.items():
             cg2 = parent2.connections.get(key)
@@ -291,6 +296,10 @@ class DefaultGenome(object):
 
             if random() < config.conn_delete_prob:
                 self.mutate_delete_connection()
+
+        # Mutate global genes.
+        for gg in self.global_params.values():
+            gg.mutate(config)
 
         # Mutate connection genes.
         for cg in self.connections.values():
@@ -440,7 +449,12 @@ class DefaultGenome(object):
                                    (config.compatibility_disjoint_coefficient *
                                     disjoint_connections)) / max_conn
 
-        distance = node_distance + connection_distance
+        # Compute global params distances.
+        g1 = self.global_params[0]
+        g2 = other.global_params[0]
+        global_distance = g1.distance(g2, config)
+
+        distance = node_distance + connection_distance + global_distance
         return distance
 
     def size(self):
