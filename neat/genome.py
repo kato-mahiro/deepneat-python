@@ -585,3 +585,11 @@ class DefaultGenome(object):
         for input_id, output_id in all_connections[:num_to_add]:
             connection = self.create_connection(config, input_id, output_id)
             self.connections[connection.key] = connection
+
+class ExampleGlobalGenome(DefaultGenome):
+    @classmethod
+    def parse_config(cls, param_dict):
+        param_dict['node_gene_type'] = DefaultNodeGene
+        param_dict['connection_gene_type'] = DefaultConnectionGene
+        param_dict['global_gene_type'] = ExampleGlobalGenome
+        return DefaultGenomeConfig(param_dict)
