@@ -119,3 +119,4 @@ class DefaultConnectionGene(BaseGene):
 
 #Global
 class ExampleGlobalGene(DefaultGlobalGene):
+    _gene_attributes = [FloatAttribute('example_float')]

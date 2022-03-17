@@ -156,6 +156,7 @@ class DefaultGenome(object):
     def parse_config(cls, param_dict):
         param_dict['node_gene_type'] = DefaultNodeGene
         param_dict['connection_gene_type'] = DefaultConnectionGene
+        param_dict['global_gene_type'] = DefaultGlobalGene
         return DefaultGenomeConfig(param_dict)
 
     @classmethod
@@ -167,7 +168,7 @@ class DefaultGenome(object):
         self.key = key
 
         # (gene_key, gene) pairs for gene sets.
-        self.global_params = {}
+        self.global_params = {} #global_param has only [0] as a valid key.
         self.connections = {}
         self.nodes = {}
 
@@ -176,6 +177,8 @@ class DefaultGenome(object):
 
     def configure_new(self, config):
         """Configure a new genome based on the given configuration."""
+        # Create global param genes.
+        self.global_params[0] = self.create_global_params(config, 0)
 
         # Create node genes for the output pins.
         for node_key in config.output_keys:
