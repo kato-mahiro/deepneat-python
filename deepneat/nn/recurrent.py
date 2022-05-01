@@ -1,4 +1,4 @@
-from neat.graphs import required_for_output
+from deepneat.graphs import required_for_output
 
 
 class RecurrentNetwork(object):

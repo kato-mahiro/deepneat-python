@@ -7,11 +7,11 @@ from random import choice, random, shuffle
 
 import sys
 
-from neat.activations import ActivationFunctionSet
-from neat.aggregations import AggregationFunctionSet
-from neat.config import ConfigParameter, write_pretty_params
-from neat.genes import DefaultConnectionGene, DefaultNodeGene
-from neat.graphs import creates_cycle
+from deepneat.activations import ActivationFunctionSet
+from deepneat.aggregations import AggregationFunctionSet
+from deepneat.config import ConfigParameter, write_pretty_params
+from deepneat.genes import DefaultConnectionGene, DefaultNodeGene
+from deepneat.graphs import creates_cycle
 
 
 class DefaultGenomeConfig(object):

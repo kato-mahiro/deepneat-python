@@ -10,8 +10,8 @@ try:
 except ImportError:
     import pickle  # pylint: disable=import-error
 
-from neat.population import Population
-from neat.reporting import BaseReporter
+from deepneat.population import Population
+from deepneat.reporting import BaseReporter
 
 
 class Checkpointer(BaseReporter):
