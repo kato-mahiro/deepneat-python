@@ -6,7 +6,7 @@ from __future__ import division, print_function
 
 import time
 
-from neat.math_util import mean, stdev
+from deepneat.math_util import mean, stdev
 
 
 class ReporterSet(object):

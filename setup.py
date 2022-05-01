@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='neat-python',
+    name='deepneat-python',
     version='0.92',
     author='cesar.gomes, mirrorballu2',
     author_email='nobody@nowhere.com',
@@ -12,7 +12,7 @@ setup(
     description='A NEAT (NeuroEvolution of Augmenting Topologies) implementation',
     long_description='Python implementation of NEAT (NeuroEvolution of Augmenting Topologies), a method ' +
                      'developed by Kenneth O. Stanley for evolving arbitrary neural networks.',
-    packages=['neat', 'neat/iznn', 'neat/nn', 'neat/ctrnn'],
+    packages=['deepneat', 'deepneat/iznn', 'deepneat/nn', 'deepneat/ctrnn'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
