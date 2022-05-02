@@ -2,6 +2,7 @@
 import deepneat.nn as nn
 import deepneat.ctrnn as ctrnn
 import deepneat.iznn as iznn
+import deepneat.deepnn as deepnn
 import deepneat.distributed as distributed
 
 from deepneat.config import Config

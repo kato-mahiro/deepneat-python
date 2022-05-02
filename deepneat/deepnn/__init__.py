@@ -1,2 +1,2 @@
-from deepneat.nn.feed_forward import FeedForwardNetwork
-from deepneat.nn.recurrent import RecurrentNetwork
+from deepneat.deepnn.deep_ffn import DeepFFN
+from deepneat.deepnn.deep_rn import DeepRN

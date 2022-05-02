@@ -1,7 +1,7 @@
 from deepneat.graphs import feed_forward_layers
 
 
-class FeedForwardNetwork(object):
+class DeepFFN(object):
     def __init__(self, inputs, outputs, node_evals):
         self.input_nodes = inputs
         self.output_nodes = outputs
@@ -49,4 +49,4 @@ class FeedForwardNetwork(object):
                 activation_function = config.genome_config.activation_defs.get(ng.activation)
                 node_evals.append((node, activation_function, aggregation_function, ng.bias, ng.response, inputs))
 
-        return FeedForwardNetwork(config.genome_config.input_keys, config.genome_config.output_keys, node_evals)
+        return DeepFFN(config.genome_config.input_keys, config.genome_config.output_keys, node_evals)

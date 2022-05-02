@@ -1,7 +1,7 @@
 from deepneat.graphs import required_for_output
 
 
-class RecurrentNetwork(object):
+class DeepRN(object):
     def __init__(self, inputs, outputs, node_evals):
         self.input_nodes = inputs
         self.output_nodes = outputs
@@ -69,4 +69,4 @@ class RecurrentNetwork(object):
             aggregation_function = genome_config.aggregation_function_defs.get(node.aggregation)
             node_evals.append((node_key, activation_function, aggregation_function, node.bias, node.response, inputs))
 
-        return RecurrentNetwork(genome_config.input_keys, genome_config.output_keys, node_evals)
+        return DeepRN(genome_config.input_keys, genome_config.output_keys, node_evals)
